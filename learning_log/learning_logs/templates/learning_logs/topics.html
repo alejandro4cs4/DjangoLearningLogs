@@ -1,0 +1,35 @@
+{% extends "learning_logs/base.html" %}
+
+{% load static %}
+{% block specificcss %}
+<link rel="stylesheet" type="text/css" href="{% static 'learning_logs/topics-style.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+{% endblock specificcss %}
+{% block title %}Topics{% endblock title %}
+
+{% block content %}
+    <div class="tabla">
+        <table>
+            <tr>
+                <th>Topics</th>
+            </tr>
+            {% for topic in topics %}
+                <tr>
+                    <td><a href="{% url 'learning_logs:topic' topic.id %}">{{ topic }}</a></td>
+                </tr>
+            {% empty %}
+                <div class="no-topics">No topics have been added yet.</div>
+            {% endfor %}
+        </table>
+    </div>
+    <div class="new-topic">
+        <form method="get" action="{% url 'learning_logs:new_topic' %}">
+            <button class="new-topic-button">
+                <i class="fas fa-plus-circle"></i>
+                Add New Topic
+            </button>
+        </form>
+    </div>
+
+
+{% endblock content %}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'learning_logs/style.css' %}">
+        {% block specificcss %}{% endblock specificcss %}
+         <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+        <title>{% block title %}Title{% endblock title %}</title>
+    </head>
+    <body>
+        <nav>
+            <h1><a href="{% url 'learning_logs:index' %}">Learning Log</a></h1>
+            <ul class="nav-links">
+                <li class="nav-link"><a class="nav-link-a" href="{% url 'learning_logs:topics' %}">Topics</a></li>
+                {% if user.is_authenticated %}
+                    <li class="nav-link"><a class="nav-link-a" href="{% url 'users:logout' %}">Log Out</a></li>
+                    <li class="nav-link">Hello, {{ user.username }}.</li>
+                {% else %}
+                    <li class="nav-link"><a class="nav-link-a" href="{% url 'users:register' %}">Register</a></li>
+                    <li class="nav-link"><a class="nav-link-a" href="{% url 'users:login' %}">Login</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+        {% block content %}{% endblock content %}
+    </body>
+</html>

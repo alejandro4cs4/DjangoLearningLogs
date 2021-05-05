@@ -1,0 +1,17 @@
+{% extends "learning_logs/base.html" %}
+
+{% load static %}
+{% block specificcss %}<link rel="stylesheet" type="text/css" href="{% static 'users/register-style.css' %}">{% endblock specificcss %}
+{% block title %}Register{% endblock title %}
+
+{% block content %}
+    <div class="container">
+        <form class="form" method="post" action="{% url 'users:register' %}" autocomplete="off">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="form-button" name="submit">Register</button>
+            <input type="hidden" name="next" value="{% url 'learning_logs:index' %}" />
+        </form>
+    </div>
+    <script src="{% static 'users/register.js' %}"></script>
+{% endblock content %}

@@ -1,0 +1,36 @@
+{% extends "learning_logs/base.html" %}
+
+{% load static %}
+{% block specificcss %}
+    <link rel="stylesheet" type="text/css" href="{% static 'learning_logs/topic-style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+{% endblock specificcss %}
+{% block title %}{{ topic }}{% endblock title %}
+
+{% block content %}
+
+    <div class="comments-container">
+        <div class="header">
+            <h2 class="topic">{{ topic }}</h2>
+            <div class="new-entry">
+                <form method="get" action="{% url 'learning_logs:new_entry' topic.id %}">
+                    <button class="new-entry-button">
+                        <i class="fas fa-plus-circle"></i>
+                       Add New Entry
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="entries">
+            {% for entry in entries %}
+                <div class="entry">
+                    <p class="entry-date">{{ entry.date_added|date:'M d, Y H:i' }}</p>
+                    <p class="entry-text">{{ entry.text|linebreaks }}</p>
+                    <p class="entry-edit"><a href="{% url 'learning_logs:edit_entry' entry.id %}">Edit entry</a> </p>
+                </div>
+            {% empty %}
+                <div>There are no entries for this topic yet.</div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}

@@ -1,0 +1,21 @@
+{% extends "learning_logs/base.html" %}
+
+{% load static %}
+{% block specificcss %}<link rel="stylesheet" type="text/css" href="{% static 'learning_logs/edit-entry-style.css' %}">{% endblock specificcss %}
+{% block title %}Edit Entry{% endblock title %}
+
+{% block content %}
+    <div class="container">
+        <div class="title">
+            <h2><a href="{% url 'learning_logs:topic' topic.id %}">{{ topic }}</a></h2>
+            <h4>Edit Entry</h4>
+        </div>
+        <div class="form-container">
+            <form class="form" action="{% url 'learning_logs:edit_entry' entry.id %}" method="post" autocomplete="off">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="form-button" name="submit">Save Changes</button>
+            </form>
+        </div>
+    </div>
+{% endblock content %}

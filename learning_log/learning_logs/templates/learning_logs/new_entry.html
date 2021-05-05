@@ -1,0 +1,20 @@
+{% extends "learning_logs/base.html" %}
+
+{% load static %}
+{% block specificcss %}<link rel="stylesheet" type="text/css" href="{% static 'learning_logs/new-entry-style.css' %}">{% endblock specificcss %}
+{% block title %}New Entry{% endblock title %}
+
+{% block content %}
+    <div class="container">
+        <div class="title">
+            <h2>New entry for <a href="{% url 'learning_logs:topic' topic.id %}">{{ topic }}</a></h2>
+        </div>
+        <div class="form-container">
+            <form class="form" action="{% url 'learning_logs:new_entry' topic.id %}" method="post" autocomplete="off">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="form-button" name="submit">Add Entry</button>
+            </form>
+        </div>
+    </div>
+{% endblock content %}

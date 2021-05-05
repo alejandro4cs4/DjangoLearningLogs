@@ -1,0 +1,64 @@
+.comments-container {
+    padding: 2rem 5rem;
+}
+
+.header {
+    display: grid;
+    grid-template-columns: 1fr max-content 1fr;
+    margin-bottom: 3rem;
+}
+
+.topic {
+    font-size: 2rem;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+.new-entry {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 2rem;
+}
+
+.new-entry-button {
+    font-weight: bold;
+    padding: 0.3rem 0.5rem;
+    border: 1px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+    outline: none;
+    margin-top: 0.3rem;
+    background-color: #e7e7e7;
+}
+
+.fa-plus-circle {
+    margin-right: 0.2rem;
+}
+
+.entry {
+    padding: 1rem 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid black;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.entry-date {
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.entry-edit {
+    margin-top: 1rem;
+    text-decoration: underline;
+}
+
+.entry-edit a {
+    border: 0;
+    border-inline-style: none;
+    text-decoration: none;
+    outline: none;
+}
+

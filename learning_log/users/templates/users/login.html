@@ -1,0 +1,21 @@
+{% extends "learning_logs/base.html" %}
+
+{% load static %}
+{% block specificcss %}<link rel="stylesheet" type="text/css" href="{% static 'users/login-style.css' %}">{% endblock specificcss %}
+{% block title %}Login{% endblock title %}
+
+{% block content %}
+    <div class="container">
+        {% if form.errors %}
+        <p>Your username and password didn't match. Please try again.</p>
+        {% endif %}
+
+        <form class="form" method="post" action="{% url 'users:login' %}" autocomplete="off">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="form-button" name="submit">Log In</button>
+            <input type="hidden" name="next" value="{% url 'learning_logs:index' %}" />
+        </form>
+    </div>
+    <script src="{% static 'users/login.js' %}"></script>
+{% endblock content %}

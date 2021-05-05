@@ -1,0 +1,75 @@
+/* IN CASE OF ERROR */
+.errorlist {
+    list-style: none;
+    color: #c91d1d;
+}
+
+/* NORMAL CASE */
+.form {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    margin-top: -250px;
+    margin-left: -225px;
+}
+
+.form p {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.form p label {
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.form p input {
+    border: none;
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid black;
+    outline: none;
+    background-color: #e7e7e7;
+}
+
+.form button {
+    background-color: rgba(30, 139, 101, 0.5);
+    font-weight: bold;
+    padding: 0.4rem 2rem;
+    border: 1px solid black;
+    cursor: pointer;
+    outline: none;
+}
+
+.helptext {
+    font-size: 0.8rem;
+}
+
+label[for="id_username"] {
+    margin-top: 2rem;
+}
+
+label[for="id_password1"] {
+    margin-top: 3rem;
+}
+
+.password-requirements {
+    padding-left: 1rem;
+    margin-bottom: 3rem;
+}
+
+.form ul li {
+    font-size: 0.8rem;
+}
+
+.add-margin-top {
+    margin-top: 2rem;
+}
+
+.form-button {
+    margin-top: 3rem;
+}

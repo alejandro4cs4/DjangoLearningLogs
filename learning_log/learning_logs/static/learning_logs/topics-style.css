@@ -1,0 +1,54 @@
+tr:nth-child(odd) {
+    background-color: #cdc5c5;
+}
+
+th, td {
+    padding: 0.5rem;
+    text-align: left;
+}
+
+th {
+    background: rgba(30, 139, 101, 0.9);
+    border: 1px solid black;
+}
+
+td {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+tr:last-child {
+    border-bottom: 1px solid black;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabla {
+    /* clockwise notation */
+    padding: 5rem 5rem 1rem 5rem;
+    width: 25vw;
+}
+
+.new-topic {
+    padding-left: 5rem;
+}
+
+.no-topics {
+    margin-bottom: 2rem;
+}
+
+.new-topic-button {
+    background-color: rgba(30, 139, 101, 0.5);
+    font-weight: bold;
+    padding: 0.4rem 1rem;
+    border: 1px solid black;
+    cursor: pointer;
+    outline: none;
+}
+
+.fa-plus-circle {
+    margin-right: 0.2rem;
+}
